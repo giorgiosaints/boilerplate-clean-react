@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install & git add .husky/pre-commit",
+    "pre-commit": "lint-staged",
     "start": "webpack-cli serve --mode=development --env development --open --hot",
     "prettier": "prettier . --ignore-path .gitignore",
     "format:fix": "yarn prettier -- --write",
@@ -16,19 +17,6 @@
     "test:ci": "yarn test -- --coverage",
     "validate": "yarn format:check lint",
     "build": "webpack --mode=production --env production --progress"
-  },
-  "lint-staged": {
-    "src/*.{ts,tsx}": [
-      "yarn format:fix",
-      "yarn lint",
-      "yarn test:staged"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test:ci"
-    }
   },
   "repository": {
     "type": "git",
@@ -71,6 +59,21 @@
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test:ci"
+    }
+  },
+  "lint-staged": {
+    "src/*.{ts,tsx}": [
+      "yarn format:fix",
+      "yarn lint",
+      "yarn test:staged",
+      "git add"
+    ],
+    "src/*.+(json|css|md)": ["prettier --write", "git add"]
   },
   "engines": {
     "node": "17.1.0"
