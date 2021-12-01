@@ -4,4 +4,4 @@
 yarn pre-commit
 # yarn format:fix
 # yarn lint
-# yarn test:staged
+# yarn test:stagedlint-staged

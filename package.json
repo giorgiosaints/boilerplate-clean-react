@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install & git add .husky/pre-commit",
+    "prepare": "husky install",
     "pre-commit": "lint-staged",
     "start": "webpack-cli serve --mode=development --env development --open --hot",
     "prettier": "prettier . --ignore-path .gitignore",
