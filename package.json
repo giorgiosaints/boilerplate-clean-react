@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "npx husky install",
+    "post-install": "yarn prepare",
     "pre-commit": "lint-staged",
     "start": "webpack-cli serve --mode=development --env development --open --hot",
     "prettier": "prettier . --ignore-path .gitignore",
