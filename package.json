@@ -4,20 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install & git add .husky/pre-commit",
     "start": "webpack-cli serve --mode=development --env development --open --hot",
-    "build": "webpack --mode=production --env production --progress",
-    "test": "jest --passWithNoTests",
-    "test:watch": "yarn test -- --watch",
-    "test:staged": "yarn test -- --findRelatedTests",
-    "test:ci": "yarn test -- --coverage",
+    "prettier": "prettier . --ignore-path .gitignore",
+    "format:fix": "yarn prettier -- --write",
+    "format:check": "yarn prettier -- --check",
     "lint": "eslint src/**/*.{ts,tsx} --quiet --fix",
-    "prettier:fix": "prettier --write .",
-    "prettier:check": "npx prettier --check .",
-    "prepare": "husky install"
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:watch": "yarn test -- --watch",
+    "test:staged": "jest --passWithNoTests --findRelatedTests src/*",
+    "test:ci": "yarn test -- --coverage",
+    "validate": "yarn format:check lint",
+    "build": "webpack --mode=production --env production --progress"
   },
   "lint-staged": {
     "src/*.{ts,tsx}": [
-      "yarn prettier:fix",
+      "yarn format:fix",
       "yarn lint",
       "yarn test:staged"
     ]
