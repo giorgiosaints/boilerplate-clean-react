@@ -1,6 +1,6 @@
 module.exports = {
   '*.{ts,tsx}': (filenames) => [
     'yarn format:fix',
-    'yarn validate'
+    'yarn format:check'
   ]
 }
