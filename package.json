@@ -16,7 +16,6 @@
     "test:watch": "yarn test -- --watch",
     "test:staged": "jest --passWithNoTests --findRelatedTests src/*",
     "test:ci": "yarn test -- --coverage",
-    "validate": "yarn format:check lint",
     "build": "webpack --mode=production --env production --progress"
   },
   "repository": {
@@ -71,6 +70,7 @@
     "src/*.{ts,tsx}": [
       "yarn format:fix",
       "yarn lint",
+      "yarn format:check",
       "yarn test:ci"
     ],
     "src/*.+(json|css|md)": [
