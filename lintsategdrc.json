@@ -1,3 +1,0 @@
-{
-  "*.{ts,tsx}": ["yarn prettier:fix", "yarn lint", "yarn test:staged"]
-}
