@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "pre-commit": "lint-staged",
     "start": "webpack-cli serve --mode=development --env development --open --hot",
     "prettier": "prettier . --ignore-path .gitignore",
@@ -73,7 +73,10 @@
       "yarn test:staged",
       "git add"
     ],
-    "src/*.+(json|css|md)": ["prettier --write", "git add"]
+    "src/*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "engines": {
     "node": "17.1.0"
