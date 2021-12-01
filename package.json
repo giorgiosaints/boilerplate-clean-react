@@ -73,8 +73,7 @@
       "yarn test:staged"
     ],
     "src/*.+(json|css|md)": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "engines": {
