@@ -71,7 +71,7 @@
     "src/*.{ts,tsx}": [
       "yarn format:fix",
       "yarn lint",
-      "yarn test:staged"
+      "yarn test:ci"
     ],
     "src/*.+(json|css|md)": [
       "prettier --write"
