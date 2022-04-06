@@ -1,22 +1,5 @@
-/**
- * ? Interface segregation principle
- * * Melhor ter várias interfaces pequenas, com um método e mais específico
- */
-export interface HttpPostClient {
-  post: (url: string) => Promise<void>
-}
-
-class RemoteAuthentication {
-  constructor(
-    private readonly url: string,
-    private readonly httpPostClient: HttpPostClient
-  ) {}
-
-  async auth(): Promise<void> {
-    await this.httpPostClient.post(this.url)
-    return Promise.resolve()
-  }
-}
+import { HttpPostClient } from '../../protocols/http/http-post-client'
+import { RemoteAuthentication } from './remote-authentication'
 
 describe('RemoteAuthentication', () => {
   test('Should call HttpPostClient with correct URL', async () => {
